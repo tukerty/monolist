@@ -3,7 +3,7 @@ var app = express()
 
 app.use(express.static('dist'))
 
-//КОД ПОТЯША
+//КОД ПОТЯША Moi code
 
 var server = app.listen(8080, function () {
     var host = "0.0.0.0"
