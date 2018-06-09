@@ -1,8 +1,7 @@
 <template>
     <header>
         <img src="" alt="logo">
-        <button ><menu-icon /></button>
-        
+        <button></button>
     </header>
 </template>
  

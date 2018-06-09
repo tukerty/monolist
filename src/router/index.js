@@ -9,7 +9,9 @@ import home from '@/components/home'
 Vue.component ('header-app', header)
 Vue.component ('foot-app', foot)
 
+
 Vue.use(Router)
+
 
 export default new Router({
   routes: [

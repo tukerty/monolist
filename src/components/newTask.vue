@@ -11,8 +11,24 @@
     </div>
 </template>
 <script>
+import DatePicker from 'vue-md-date-picker'
+
 export default {
-    name:'newTask'
+    name:'newTask',
+    components: {
+        DatePicker
+    },
+    data() {
+        return {
+            show: true,
+            date: Date.now()
+        }
+    }
 }
 </script>
+
+<style>
+
+</style>
+
 
