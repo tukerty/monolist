@@ -2,26 +2,50 @@
     <div>
         <h1>New Task</h1>
         <form action="" name="newTask">
-            <input type="text">
-            <date-picker @close="show = false"
-             v-if="show"
-             v-model="date"></date-picker>
+            <date-picker @close="show = false" v-if="show" v-model="date"></date-picker>
+            <label for="">Name</label>
+            <input type="text" v-model="name">
+            <br>
+            <label for="">Alarm</label>
+            <input type="radio" name="type" value="1" v-model="type">
+            <label for="">Notification</label>
+            <input type="radio" name="type" value="0" v-model="type">
+            <textarea cols="30" rows="10" v-model="description"></textarea>
+            <button @click="sendTask" type="button" >Create</button>
         </form>
-        <router-link to="/time"><button>next</button></router-link>
     </div>
 </template>
 <script>
 import DatePicker from 'vue-md-date-picker'
+import axios from 'axios'
 
 export default {
     name:'newTask',
     components: {
         DatePicker
     },
+    methods: {
+        sendTask: function(){
+            axios.post('http://127.0.0.1:3000/task', {
+                name: this.name,
+                date: this.date,
+                type: this.type,
+                description: this.description
+            })
+            .then(response => {
+
+            }).catch(error => {
+
+            })
+        }
+    },
     data() {
         return {
-            show: true,
-            date: Date.now()
+            type: 0,
+            name: '',
+            date: undefined,
+            description: '',
+            show: true
         }
     }
 }
